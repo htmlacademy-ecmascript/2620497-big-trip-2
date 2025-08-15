@@ -1,13 +1,8 @@
-import Presenter from './presenter/presenter.js';
+import TripPresenter from './presenter/trip-presenter.js';
+import WaypointModel from './model/waypoint-model.js';
 
-const tripMainElement = document.querySelector('.trip-main');
-const filterContainer = document.querySelector('.trip-controls__filters');
-const eventsContainer = document.querySelector('.trip-events');
-
-const boardPresenter = new Presenter({
-  tripMainElement,
-  filterContainer,
-  eventsContainer,
-});
-
-boardPresenter.init();
+const siteFiltersElement = document.querySelector('.trip-main__trip-controls');
+const siteMainElement = document.querySelector('.trip-events');
+const waypointModel = new WaypointModel();
+const presenter = new TripPresenter({ headerContainer: siteFiltersElement, mainContainer: siteMainElement, waypointModel });
+presenter.init();
